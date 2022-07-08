@@ -39,7 +39,7 @@ const MainLayout: React.FC = ({children}) => {
   return (
     <>
       <Header/>
-      <h1 className={classes.minorChange}>Welcome to My Store!</h1>
+      <h1 className={classes.minorChange}>Welcome to My Store for AWS Course!</h1>
       <main>
         <Container className={classes.container} maxWidth="md">
           {children!}

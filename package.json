@@ -5,7 +5,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "serverless:deploy": "npm run build && serverless client deploy --no-confirm",
+    "serverless:deploy": "serverless client deploy --no-confirm",
+    "serverless:build:deploy": "npm run build && npm run serverless:deploy",
     "serverless:clean": "serverless client remove --no-confirm",
     "client:deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
     "client:deploy:nc": "npm run client:deploy -- --no-confirm",
@@ -46,6 +47,7 @@
     "react-scripts": "3.4.1",
     "serverless": "^2.29.0",
     "serverless-finch": "^2.6.0",
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin",
     "typescript": "~4.3.5",
     "yup": "^0.29.1"
   },
@@ -53,8 +55,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "serverless-single-page-app-plugin": "^1.0.4"
+    "@types/jest": "^24.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"
