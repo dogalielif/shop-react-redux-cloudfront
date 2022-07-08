@@ -5,6 +5,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serverless:deploy": "npm run build && serverless client deploy --no-confirm",
+    "serverless:clean": "serverless client remove --no-confirm",
     "client:deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
     "client:deploy:nc": "npm run client:deploy -- --no-confirm",
     "client:build:deploy": "npm run build && npm run client:deploy",
@@ -51,7 +53,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0"
+    "@types/jest": "^24.0.0",
+    "serverless-single-page-app-plugin": "^1.0.4"
   },
   "eslintConfig": {
     "extends": "react-app"

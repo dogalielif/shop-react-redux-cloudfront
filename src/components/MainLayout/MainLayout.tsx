@@ -47,7 +47,7 @@ const MainLayout: React.FC = ({children}) => {
       </main>
       <footer className={classes.footer}>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Thank you for your purchase!
+          Thank you for visiting!
         </Typography>
         <Copyright/>
       </footer>
