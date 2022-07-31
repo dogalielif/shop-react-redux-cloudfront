@@ -26,6 +26,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
+  minorChange: {
+    color: "red",
+    display: "flex",
+    justifyContent: "center"
+  }
 }));
 
 const MainLayout: React.FC = ({children}) => {
@@ -34,6 +39,7 @@ const MainLayout: React.FC = ({children}) => {
   return (
     <>
       <Header/>
+      <h1 className={classes.minorChange}>Welcome to My Store for AWS Course!</h1>
       <main>
         <Container className={classes.container} maxWidth="md">
           {children!}
@@ -41,7 +47,7 @@ const MainLayout: React.FC = ({children}) => {
       </main>
       <footer className={classes.footer}>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Thank you for your purchase!
+          Thank you for visiting!
         </Typography>
         <Copyright/>
       </footer>
