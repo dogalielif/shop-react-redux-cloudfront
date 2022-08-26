@@ -30,10 +30,19 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
   };
 
   const uploadFile = async (e: any) => {
-      // Get the presigned URL
+      var username = 'dogalielif';
+      var password = 'TEST_PASSWORD'
+
+      // const token = `${username}:${password}`;
+      // const encodedToken = Buffer.from(token).toString('base64');
+       // Get the presigned URL
       const response = await axios({
         method: 'GET',
         url,
+        auth: {
+          username: username,
+          password: password
+        },
         params: {
           name: encodeURIComponent(file.name)
         }
