@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -30,10 +30,27 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
   };
 
   const uploadFile = async (e: any) => {
+    const token = localStorage.getItem("authorization_token");
+    const username = 'dogalielif';
+    const password = 'TEST_PASSWORD'
+
+    // const token = `${username}:${password}`;
+    // const encodedToken = Buffer.from(token).toString('base64');
       // Get the presigned URL
+
+    const authHeader = token 
+    ? {headers: {
+        Authorization: `Basic ${Buffer.from(token).toString('base64')}`
+      }} 
+    : {auth: {
+          username: username,
+          password: password
+        }}
+    try {
       const response = await axios({
         method: 'GET',
         url,
+        ...authHeader,
         params: {
           name: encodeURIComponent(file.name)
         }
@@ -46,8 +63,10 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
       })
       console.log('Result: ', result)
       setFile('');
+    } catch(error) {
+      console.log('error', error);
     }
-  ;
+  };
 
   return (
     <div className={classes.content}>
